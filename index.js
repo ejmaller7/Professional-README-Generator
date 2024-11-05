@@ -27,10 +27,10 @@ const questions = () => {
         message: "Please write a short description of your project",
     },
     {
-        type: 'input',
+        type: 'list',
         name: 'License',
         message: "What kind of license should your project have?",
-        list: ['MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 3', 'None'],
+        choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 3', 'None'],
     },
     {
         type: 'input',
@@ -57,7 +57,7 @@ const questions = () => {
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(`${fileName}.md`, data, (err) =>
+    fs.writeFile(`./README.md`, data, (err) =>
         err ? console.error(err) : console.log("Generating README...")
     );
 }
@@ -67,7 +67,7 @@ function init() {
     questions()
         .then((responses) => {
             const markdown = generateMarkdown(responses);
-            writeToFile("ReadMe", markdown);
+            writeToFile("README", markdown);
         })
         .catch((error) => console.error(error));
 }

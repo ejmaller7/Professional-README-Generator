@@ -55,6 +55,7 @@ function generateMarkdown(data) {
 
   ## License
   ${renderLicenseSection(data.License)}
+  ${renderLicenseLink(data.License)}
 
   ## Contributing
   ${data["Contributing to repo"]}
